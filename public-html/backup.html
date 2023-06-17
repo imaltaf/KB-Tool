@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>KB-Tool</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+		input {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+		}
+
+		button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			margin-right: 10px;
+		}
+
+		#output {
+			margin-top: 10px;
+			white-space: pre;
+			font-family: monospace;
+			background-color: #eee;
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			overflow-x: auto;
+		}
+
+		#reset {
+			background-color: #dd2d2d;
+			color: white;
+		}
+
+        
+/* copy to clip board css */
+
+.container {
+        margin-top: 50px; /* add 50px top margin */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        
+      }
+      .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(150, 144, 144, 0.897);
+        border-radius: 5px;
+        width: 200px;
+        height: 50px;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+      .button:hover {
+        background-color: rgba(54, 92, 36, 0.8);
+      }
+      .icon {
+        margin-right: 10px;
+      }
+      .copied {
+        position: relative;
+        animation: 1s ease-out 0s 1 slideUp;
+      }
+      .copied-message {
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 14px;
+        padding: 5px;
+        background-color: rgba(0, 255, 0, 0.8);
+        color: #fff;
+        border-radius: 5px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s ease-in-out;
+      }
+      .copied-message.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      @keyframes slideUp {
+        0% { opacity: 1; top: 0; }
+        25% { opacity: 1; top: -10px; }
+        75% { opacity: 1; top: -10px; }
+        100% { opacity: 0; top: -20px; }
+      }
+
+	</style>
+</head>
+<body>
+<h1>Input Transaction IDs</h1>
+<input type="text" id="inputIds" placeholder="Enter IDs and press Enter to copy">
+<button id="copy" onclick="copyIds()">Copy IDs</button>
+<button id="reset" onclick="resetIds()">Reset</button>
+<p id="count"></p>
+<p id="output"></p>
+<script>
+		var inputField = document.getElementById("inputIds");
+		inputField.addEventListener("keyup", function(event) {
+			if (event.keyCode === 13) {
+				event.preventDefault();
+				copyIds();
+			}
+		});
+
+		function copyIds() {
+			var input = inputField.value;
+			var ids = input.split(" ");
+			var count = ids.length;
+			document.getElementById("count").innerHTML = "Count: " + count;
+			document.getElementById("output").innerHTML = count + ":" + ids.join(",");
+			var temp = document.createElement("textarea");
+			temp.value = count + ":" + ids.join(",");
+			document.body.appendChild(temp);
+			temp.select();
+			document.execCommand("copy");
+			document.body.removeChild(temp);
+			
+		}
+
+		function resetIds() {
+			inputField.value = "";
+			document.getElementById("count").innerHTML = "";
+			document.getElementById("output").innerHTML = "";
+		}
+	</script>
+
+<style>
+    /* Add some basic styling */
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: rgb(99, 89, 89);
+    }
+    input[type="text"] {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: none;
+      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    }
+    button {
+      padding: 8px 16px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: none;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Company Name Search</h1>
+
+    <label for="companyName">Enter company name:</label>
+    <br>
+    <input type="text" id="companyName" placeholder="Company Name">
+    <br>
+    <label><input type="radio" name="searchType" value="site" checked> Site</label>
+    <label><input type="radio" name="searchType" value="zauba"> Zauba</label>
+    <br>
+    <button onclick="search()" style="background-color: #7f4197;">Search Company Name</button>
+  </div>
+</div>
+</div>
+</div>
+
+  <div class="container">
+  <h1>copy comments by one click</h1>
+    <div class="button" onclick="copyToClipboard('QID75-Latest 3-months statement not available, Need Recent 3/6 Months Bank Acc statement Hence Given Preset.', this)">
+      <i class="bi bi-clipboard icon"></i>
+      <span>QID-75</span>
+      <div class="copied-message">Copied!</div>
+    </div>
+    <div class="button" onclick="copyToClipboard('Need valid id card or pay slips to confirm salary', this)">
+      <i class="bi bi-clipboard icon"></i>
+      <span>Docs-reupload</span>
+      <div class="copied-message">Copied!</div>
+    </div>
+    <div class="button" onclick="copyToClipboard('salary not found -- ', this)">
+      <i class="bi bi-clipboard icon"></i>
+      <span>not salary</span>
+      <div class="copied-message">Copied!</div>
+    </div>
+    <div class="button" onclick="copyToClipboard('Need till date bank statement -- Hence given p-reset', this)">
+      <i class="bi bi-clipboard icon"></i>
+      <span>p-reset 1M</span>
+      <div class="copied-message">Copied!</div>
+    </div>
+    <div class="button" onclick="copyToClipboard('Need to confirm salary -- ', this)">
+      <i class="bi bi-clipboard icon"></i>
+      <span>confirm_Salary</span>
+      <div class="
+      copied-message">Copied!</div>
+    </div>
+  </div>
+  
+
+
+  <script>
+
+
+    function copyOutput() {
+      const output = document.getElementById("output").innerText;
+      navigator.clipboard.writeText(output);
+    }
+
+    function reset() {
+      document.getElementById("input").value = "";
+      document.getElementById("output").innerText = "";
+    }
+
+    function search() {
+      var companyName = document.getElementById("companyName").value;
+      var searchType = document.querySelector('input[name="searchType"]:checked').value;
+      var query = searchType === "site" ? "site: " + companyName : companyName + " zauba";
+      window.open("https://www.google.com/search?q=" + query);
+    }
+
+    function copyToClipboard(text, button) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        button.classList.add('copied');
+        setTimeout(() => {
+          button.classList.remove('copied');
+        }, 1000);
+        const copiedMessage = button.querySelector('.copied-message');
+        copiedMessage.classList.add('show');
+        setTimeout(() => {
+          copiedMessage.classList.remove('show');
+        }, 2000);
+      }  
+  </script>
+
+<footer>
+  <p>Devloped by: A L T A F <br>
+  <a href="imaltaf@proton.me">imaltaf@proton.me</a></p>
+</footer>
+</body>
+</html>
