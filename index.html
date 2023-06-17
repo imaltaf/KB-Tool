@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>KB-Tool</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ <!--  trans ids search -->
+ <div style="margin-bottom: 20px;"></div>
+<h1>Input Transaction IDs</h1>
+<input type="text" id="inputIds" placeholder="Enter IDs and press Enter to copy">
+<button id="copy" onclick="copyIds()">Copy IDs</button>
+<button id="reset" onclick="resetIds()">Reset</button>
+<div style="margin-bottom: 30px;"></div>
+<p style="color: azure;" id="count"></p>
+<p style="color: azure;" id="output"></p>
+</div>
+</div>
+<!--  zauba search -->
+<div style="margin-bottom: 20px;"></div>
+<h1>Company Name Search</h1>
+<div style="margin-bottom: 20px;"></div>
+<label style="color: azure;" for="companyName">Enter company name:</label>
+<br>
+<div style="margin-bottom: 10px;"></div>
+<input type="text" id="companyName" placeholder="Company Name">
+<br>
+<div style="margin-bottom: 20px;"></div>
+<label style="color: azure;"><input type="radio" name="searchType" value="site" checked> Site</label>
+<label style="color: azure;"><input type="radio" name="searchType" value="zauba"> Zauba</label>
+<br>
+<button onclick="search()" style="background-color: #3e5
+c0f;">Search </button>
+<button id=zreset onclick="resetForm()">Reset</button>
+</div>
+</div>
+<!--  comments search -->
+<div style="margin-bottom: 40px;"></div>
+<h1>copy comments by one click</h1>
+  <div class="container">
+    <div class="button" onclick="copyToClipboard('QID75-Latest 3-months statement not available, Need Recent 3/6 Months Bank Acc statement Hence Given Preset.', this)">
+      <i class="bi bi-clipboard icon"></i>
+      <span>QID-75</span>
+      <div class="copied-message">Copied!</div>
+    </div>
+    <div class="button" onclick="copyToClipboard('Need valid id card or pay slips to confirm salary', this)">
+      <i class="bi bi-clipboard icon"></i>
+      <span>Docs-reupload</span>
+      <div class="copied-message">Copied!</div>
+    </div>
+    <div class="button" onclick="copyToClipboard('salary not found -- ', this)">
+      <i class="bi bi-clipboard icon"></i>
+      <span>not salary</span>
+      <div class="copied-message">Copied!</div>
+    </div>
+    <div class="button" onclick="copyToClipboard('text4', this)">
+      <i class="bi bi-clipboard icon"></i>
+      <span>Copy Text 4</span>
+      <div class="copied-message">Copied!</div>
+    </div>
+    <div class="button" onclick="copyToClipboard('text5', this)">
+      <i class="bi bi-clipboard icon"></i>
+      <span>Copy Text 5</span>
+      <div class="
+      copied-message">Copied!</div>
+    </div>
+  </div>
+  <div style="margin-bottom: 330px;"></div>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <span class="footer-copyright">
+          &copy; 2023. All rights reserved.
+        </span>
+      </div>
+      <div class="footer-right">
+        <span class="footer-developed-by">
+          Developed by : A L T A F
+        </span>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script src="script.js"></script>
+
+</body>
