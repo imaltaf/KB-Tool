@@ -244,10 +244,23 @@ button:hover {
   
 
   /*toggel */
-    /* Light green background and green glow effect */
-    .gsc-search-box, .gsc-input-box {
+    /* Container style */
+    .zauba_container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #24311d;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+  }
+
+  /* Light green background and green glow effect */
+  .gsc-search-box, .gsc-input-box {
       background-color: #d3ffd3 !important; /* Light green background */
       box-shadow: 0 0 5px #00FF00; /* Green glow effect */
+      width: 100% !important; /* Set full width for the input box */
+      max-width: 100% !important; /* Set full width for the search box */
+      margin-bottom: 10px; /* Add some space between elements */
   }
 
   /* Set the input text color to black */
@@ -261,6 +274,8 @@ button:hover {
       color: white !important; /* White text color */
       border-color: #3e5c0f !important; /* Dark green border color */
       border-radius: 4px !important; /* Rounded corners */
+      padding: 10px 20px; /* Add padding to the button */
+      font-size: 16px; /* Increase font size for better visibility */
   }
 
   /* Custom styling for the search results page */
