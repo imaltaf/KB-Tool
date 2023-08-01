@@ -244,5 +244,26 @@ button:hover {
   
 
   /*toggel */
+    /* Light green background and green glow effect */
+    .gsc-search-box, .gsc-input-box {
+      background-color: #d3ffd3 !important; /* Light green background */
+      box-shadow: 0 0 5px #00FF00; /* Green glow effect */
+  }
 
-  
+  /* Set the input text color to black */
+  .gsc-input-box input.gsc-input {
+      color: black !important;
+  }
+
+  /* Custom styling for the search button */
+  .gsc-search-button {
+      background-color: #3e5c0f !important; /* Dark green background */
+      color: white !important; /* White text color */
+      border-color: #3e5c0f !important; /* Dark green border color */
+      border-radius: 4px !important; /* Rounded corners */
+  }
+
+  /* Custom styling for the search results page */
+  .gsc-webResult.gsc-result, .gsc-resultsHeader {
+      border-color: #00FF00 !important; /* Green border for search results */
+  }
